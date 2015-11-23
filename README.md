@@ -14,4 +14,5 @@ FEATURES:
 ✔ Rounds - Awesome Screen Corner allow to overlapp corners of the status bar.
 
 ✔ Corners screen decorator decorate your touchscreen with many free corner’s styles
+
 You can try it by installing from [GooglePlay] (https://play.google.com/store/apps/details?id=ss.passion.screencorner&hl=en)
