@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">"Screen Corner "</string>
+    <string name="general_setting">TỔNG THỂ</string>
+    <string name="enable_service">Bật/Tắt ứng dụng</string>
+    <string name="boot_start">Chạy sau khi khởi động</string>
+    <string name="overlap">Che phủ thanh trạng thái</string>
+    <string name="enable_lockscreen">Hiển thị trên màn hình khoá</string>
+    <string name="corner_design">THIẾT KẾ</string>
+    <string name="choose_style">Chọn mẫu thiết kế</string>
+    <string name="corner_position">Vị trí</string>
+    <string name="top_left">Top Left</string>
+    <string name="top_right">Top Right</string>
+    <string name="bottom_left">Bottom Left</string>
+    <string name="bottom_right">Bottom Right</string>
+    <string name="corner_size">Kích thước</string>
+    <string name="support">HỖ TRỢ</string>
+    <string name="share_app">Chia sẻ ứng dụng</string>
+    <string name="help_center">Giúp đỡ</string>
+    <string name="rate_us">Đánh giá ứng dụng</string>
+    <string name="send_feedback">Gửi phản hồi</string>
+    <string name="about">Thông tin ứng dụng</string>
+    <string name="help_translate">Giúp chúng tôi dịch ngôn ngữ</string>
+    <string name="show_icon">Hiện icon trên thanh trạng thái</string>
+    <string name="go_to_setting">Click vào đây để cài đặt</string>
+    <string name="rate_this_app">Đánh giá ứng dụng</string>
+    <string name="rate_message">Nếu bạn thích ứng dụng này, vui lòng đánh giá. Cảm ơn!</string>
+
+</resources>

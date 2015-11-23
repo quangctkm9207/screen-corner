@@ -1,0 +1,143 @@
+# To enable ProGuard in your project, edit project.properties
+# to define the proguard.config property as described in that file.
+#
+# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in ${sdk.dir}/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the ProGuard
+# include property in project.properties.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontpreverify
+# 4 dòng trên mình đọc nhưng không rõ lắm
+# dòng dưới đây có tác dụng : khi bạn dùng proguard để " xáo trộn code " , tất nhiên sẽ có 
+# 1 số ngoại lệ , dòng này sẽ in ra toàn bộ dấu vết của ngoại lệ này lên màn hình console
+# còn nếu không có thì 1 là chỉ có 1 hộp thoại thông báo lỗi , hoặc không có thông báo gì
+-verbose
+ 
+#thư viện ngoài . Chỉ rõ đường dẫn tới thư viện ngoài mà bạn import
+#-libraryjars C:\Users\Thanh\Desktop\NewMobileX\lib\Stun4J.jar
+#-libraryjars C:\Users\Thanh\Desktop\NewMobileX\lib\weupnp-0.1.2-SNAPSHOT.jar
+
+#( hoặc 
+#-libraryjars /lib/Stun4J.jar
+#-libraryjars /lib/weupnp-0.1.2-SNAPSHOT.jar )
+
+# Đổi tên tất cả các class , package  thành 1 ký tự đơn như a, b, c...
+-repackageclasses ''
+ 
+# Đơn giản hóa số học mà Dalvik 1.0 và 1.5 không thể xử lý
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+# Loại bỏ các chú thích
+-keepattributes *Annotation* 
+
+ # Các dòng có keep sau các bạn giữ nguyên . Tác dụng : giữ lại các lớp được khai báo trong
+ # AndroidManifest.xml
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+ 
+# Nếu khi thiết kế giao diện sử dụng thuộc tính onClick thì nên giữ lại nhé
+-keepclassmembers class * {
+    public void actionSearch(android.view.View);
+    public void actionAFeature(android.view.View);
+    public void actionBFeature(android.view.View);
+}
+  
+#Để duy trì các thành phần tùy chỉnh được sử dụng trên XML.
+-keep public class custom.components.package.and.name.**
+  
+#Xóa tất cả các Log.v(), Log.i()...
+-assumenosideeffects class android.util.Log {
+    public static *** d(...);
+    public static *** v(...);
+    public static *** w(...);
+    public static *** e(...);
+    public static *** i(...);
+}
+ 
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+ 
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+ 
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+
+
+ 
+#-keepclassmembers class * extends android.app.Activity {
+#   public void *(android.view.View);
+#}
+
+
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+  
+# Nếu có 1 lớp nào implement Parcelable thì giữ lại
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+ 
+# Giữ lại các id nằm trong R
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+ 
+#-keep class mypackage.MyCallbackClass {
+#   void myCallbackMethod(java.lang.String);
+#}
+ 
+# Nếu có 1 lớp nào implement Serializable thì giữ lại
+-keepclassmembers class * implements java.io.Serializable {
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
